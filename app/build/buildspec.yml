@@ -1,6 +1,6 @@
 version: 0.2
 
 phases:
-build:
-  commands:
-    - echo This is a static website. Nothing to build, lint or test yet.
+  build:
+    commands:
+      - echo This is a static website. Nothing to build, lint or test yet.
