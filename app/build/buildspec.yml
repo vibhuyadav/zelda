@@ -5,4 +5,9 @@ phases:
     commands:
       - echo The name of the project - $PROJECT_NAMe
       - echo This is a static website. Nothing to build, lint or test yet.
-      
+  artifacts:
+  secondary-artifacts:
+    artifact1:
+      base-directory: app/src
+      files:
+        - '**/*'
