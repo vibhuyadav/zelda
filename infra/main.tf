@@ -11,8 +11,8 @@ module "website" {
   project_region         = var.project_region
   website_index_document = var.website_index_document
   website_error_document = var.website_error_document
-  web_acl_id             = module.extra_credit_1_security.aws_wafv2_web_acl_id
-  logging_s3_bucket_name = module.extra_credit_2_logging.logging_s3_bucket_name
+  web_acl_id             = module.extra_credit_2_security.aws_wafv2_web_acl_id
+  logging_s3_bucket_name = module.extra_credit_3_logging.logging_s3_bucket_name
 }
 
 ## Creates a AWS Cloudwatch Alarm and SNS Topic to subscribe to receive notification.
