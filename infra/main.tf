@@ -40,3 +40,12 @@ module "extra_credit_3_codepipelines" {
   project_region            = var.project_region
   s3_deployment_bucket_name = module.website.s3_bucket_name
 }
+
+## Creates a AWS Cloudwatch Alarm and SNS Topic to subscribe to receive notification.
+module "extra_credit_missed_cloudwatch" {
+  source                        = "./modules/cloudwatch"
+  project_env                   = var.project_env
+  project_name                  = var.project_name
+  project_region                = var.project_region
+  cloudfront_distribution_id    = module.website.cloudfront_distribution_id
+}

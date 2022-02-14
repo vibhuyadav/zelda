@@ -21,3 +21,7 @@ output "cloudfront_domain_name" {
 output "codestar_connection_status" {
   value = module.extra_credit_3_codepipelines.codestar_connection_status
 }
+
+output "sns_topic_arn" {
+  value = module.extra_credit_missed_cloudwatch.sns_topic_arn
+}
