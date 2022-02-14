@@ -8,3 +8,4 @@ phases:
 artifacts:
   files:
       - 'app/src/**'
+  discard-paths: yes
