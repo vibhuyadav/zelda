@@ -74,3 +74,5 @@ Fork this repo if you want to contribute.
 * Make IAM policies seperate json documents or use terraform's data.aws_iam_policy_document to create the policy document during apply. Right now some of them are inline policies
 
 * Add more WAF rules
+
+* Make CD more robust. Accept a list of map like this [{"project_env": "website_bucket_name"}] so that codepipeline's module can iterate and create actions using dynamic block.

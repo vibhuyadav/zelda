@@ -2,6 +2,7 @@
 ############# AWS Codepipeline ####################
 ###################################################
 
+## Check whether the tools_env equals tools if not skip creating these resources.
 locals {
   is_tools_env = var.tools_env == "tools" ? 1 : 0
 }
@@ -86,6 +87,9 @@ resource "aws_codepipeline" "aws_codepipeline" {
       }
     }
 
+    ## This currently is not supported and won't work. In order to make CD more robust - a list(objects) should be
+    ## passed which contains env and specific buckets. Then using for_each within a dynamic block iterate over the
+    ## list to create specific codepipeline's stages and actions.
     action {
       name            = "Deploy"
       category        = "Deploy"
