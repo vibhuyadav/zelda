@@ -68,3 +68,9 @@ Fork this repo if you want to contribute.
 * Support multiple backends depending on what user prefers. This [issue](https://github.com/hashicorp/terraform/issues/24929) should resolve it but till that's not available change the backend.tf file to use a backend of your choice or don't. In which case it will use your local machine. Be careful when deploying to prod and using your local machine to store state files. Uncomment .gitignore to check in those files in your repository. S3 is another great choice, just make sure to create that statestore bucket outside of this project as you will need it before deployment.
 
 * Instead of using tfvars file using Terraform Workspaces to define your environments. I used Terraform Cloud to a certain degree but those can be defined on any system. Please refere [this](https://www.terraform.io/language/settings/backends/remote)
+
+* Make more scm options available to connect to codestar_connection. It can be variablalized.
+
+* Make IAM policies seperate json documents or use terraform's data.aws_iam_policy_document to create the policy document during apply. Right now some of them are inline policies
+
+* Add more WAF rules
