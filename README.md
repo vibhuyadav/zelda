@@ -40,7 +40,7 @@ s3_lifecylcle_expiration_days   = 30
 
 I used a free tier Terraform Cloud to deploy these resources using Github Actions. If you setup that, it's advised to use *.auto.tfvars file such that it is automatically picked by the default workspace which in this case was dev.
 
-Your Terraform variables file will serve as an input to the infraturure deployments (extra credit - 4)
+Your Terraform variables file will serve as an input to the infraturure deployments (extra credit - #0)
 
 Once you have your tfvars file setup apply your terraform.
 
@@ -48,7 +48,7 @@ Once you have your tfvars file setup apply your terraform.
 terraform apply --var-file=zelda.tfvars
 ```
 
-This should deploy the infrastructure and provide you with few outputs that you might plug into other Terraform workspaces or CI/CD environments. (extra credit - 4)
+This should deploy the infrastructure and provide you with few outputs that you might plug into other Terraform workspaces or CI/CD environments. (extra credit - #0)
 
 # How to contribute?
 

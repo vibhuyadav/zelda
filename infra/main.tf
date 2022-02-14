@@ -15,8 +15,17 @@ module "website" {
   logging_s3_bucket_name = module.extra_credit_2_logging.logging_s3_bucket_name
 }
 
+## Creates a AWS Cloudwatch Alarm and SNS Topic to subscribe to receive notification.
+module "extra_credit_1_cloudwatch" {
+  source                        = "./modules/cloudwatch"
+  project_env                   = var.project_env
+  project_name                  = var.project_name
+  project_region                = var.project_region
+  cloudfront_distribution_id    = module.website.cloudfront_distribution_id
+}
+
 ## Creates a WAF ACL that is then used by the cloudfront module for security
-module "extra_credit_1_security" {
+module "extra_credit_2_security" {
   source         = "./modules/waf"
   project_env    = var.project_env
   project_name   = var.project_name
@@ -24,7 +33,7 @@ module "extra_credit_1_security" {
 }
 
 ## Creates an S3 bucket for logging purposes. The bucket is used by cloudfront
-module "extra_credit_2_logging" {
+module "extra_credit_3_logging" {
   source                        = "./modules/logging"
   project_env                   = var.project_env
   project_name                  = var.project_name
@@ -33,19 +42,10 @@ module "extra_credit_2_logging" {
 }
 
 ## Creates a AWS Codepipeline that can be used to deploy app when it changes. 
-module "extra_credit_3_codepipelines" {
+module "extra_credit_4_codepipelines" {
   source                    = "./modules/codepipelines"
   tools_env                 = var.tools_env
   project_name              = var.project_name
   project_region            = var.project_region
   s3_deployment_bucket_name = module.website.s3_bucket_name
-}
-
-## Creates a AWS Cloudwatch Alarm and SNS Topic to subscribe to receive notification.
-module "extra_credit_missed_cloudwatch" {
-  source                        = "./modules/cloudwatch"
-  project_env                   = var.project_env
-  project_name                  = var.project_name
-  project_region                = var.project_region
-  cloudfront_distribution_id    = module.website.cloudfront_distribution_id
 }
