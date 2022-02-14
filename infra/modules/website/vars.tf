@@ -27,3 +27,13 @@ variable "website_error_document" {
   type        = string
   description = "The error page"
 }
+
+variable "web_acl_id" {
+  type        = string
+  description = "The waf acl id that gets attached to the cloudfront"
+}
+
+variable "logging_s3_bucket_name" {
+  type        = string
+  description = "The name of the bucket used to store cloudfront logs"
+}

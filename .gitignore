@@ -30,3 +30,6 @@ override.tf.json
 
 # Terraform Lock Files
 .terraform.lock.hcl
+
+# Ignore Problem Statement
+PROBLEM_STATEMENT.md

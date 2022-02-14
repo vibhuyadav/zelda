@@ -1,6 +1,6 @@
-########################################################
-############### AWS S3 Module ##########################
-########################################################
+##################################################
+############### AWS S3  ##########################
+##################################################
 
 resource "aws_s3_bucket" "aws_s3_bucket" {
   bucket = "${var.project_env}-${var.project_name}-${var.project_region}.${var.domain_name}"
@@ -26,6 +26,7 @@ data "aws_iam_policy_document" "aws_iam_policy_document" {
     ]
 
     resources = [
+      "arn:aws:s3:::${var.project_env}-${var.project_name}-${var.project_region}.${var.domain_name}",
       "arn:aws:s3:::${var.project_env}-${var.project_name}-${var.project_region}.${var.domain_name}/*",
     ]
 
