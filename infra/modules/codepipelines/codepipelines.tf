@@ -71,7 +71,7 @@ resource "aws_codepipeline" "aws_codepipeline" {
     }
   }
 
-stage {
+  stage {
     name = "ProdDeployment"
 
     action {
@@ -110,9 +110,9 @@ resource "aws_codestarconnections_connection" "aws_codestarconnections_connectio
 }
 
 resource "aws_s3_bucket" "aws_s3_codepipeline_artifacts_bucket" {
-  count     = local.is_tools_env
-  bucket    = "${var.tools_env}-${var.project_name}-${var.project_region}-codepipeline-artifacts"
-  acl       = "private"
+  count  = local.is_tools_env
+  bucket = "${var.tools_env}-${var.project_name}-${var.project_region}-codepipeline-artifacts"
+  acl    = "private"
 }
 
 resource "aws_iam_role" "aws_iam_codepipeline_role" {

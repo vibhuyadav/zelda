@@ -33,7 +33,7 @@ resource "aws_codebuild_project" "aws_codebuild_project" {
   }
 
   source {
-    type = "CODEPIPELINE"
+    type      = "CODEPIPELINE"
     buildspec = var.buildspec_location
   }
 
