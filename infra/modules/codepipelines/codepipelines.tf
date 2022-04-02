@@ -116,6 +116,10 @@ resource "aws_codestarconnections_connection" "aws_codestarconnections_connectio
 resource "aws_s3_bucket" "aws_s3_codepipeline_artifacts_bucket" {
   count  = local.is_tools_env
   bucket = "${var.tools_env}-${var.project_name}-${var.project_region}-codepipeline-artifacts"
+}
+
+resource "aws_s3_bucket_acl" "aws_s3_codepipeline_artifacts_bucket_acl" {
+  bucket = one(aws_s3_bucket.aws_s3_codepipeline_artifacts_bucket[*].id)
   acl    = "private"
 }
 

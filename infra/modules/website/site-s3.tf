@@ -4,16 +4,27 @@
 
 resource "aws_s3_bucket" "aws_s3_bucket" {
   bucket = "${var.project_env}-${var.project_name}-${var.project_region}.${var.domain_name}"
-  acl    = "public-read"
-
-  website {
-    index_document = var.website_index_document
-    error_document = var.website_error_document
-  }
 
   tags = {
     app-name = var.project_name
     app-env  = var.project_env
+  }
+}
+
+resource "aws_s3_bucket_acl" "aws_s3_codepipeline_artifacts_bucket_acl" {
+  bucket = aws_s3_bucket.aws_s3_bucket.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_website_configuration" "aws_s3_bucket_website_configuration" {
+  bucket = aws_s3_bucket.aws_s3_bucket.bucket
+
+  index_document {
+    suffix = var.website_index_document
+  }
+
+  error_document {
+    key = var.website_error_document
   }
 }
 
