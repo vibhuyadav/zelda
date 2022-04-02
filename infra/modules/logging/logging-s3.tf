@@ -10,7 +10,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "aws_s3_bucket_lifecycle_config
   bucket = aws_s3_bucket.aws_s3_bucket.id
 
   rule {
-    id = "lifecycle_rule"
+    id     = "lifecycle_rule"
     status = "Enabled"
     expiration {
       days = var.s3_lifecylcle_expiration_days

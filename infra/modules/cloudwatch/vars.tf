@@ -27,5 +27,5 @@ variable "period" {
 variable "threshold" {
   type        = string
   default     = 3
-  description = "The threshold for metric to trigger" 
+  description = "The threshold for metric to trigger"
 }
