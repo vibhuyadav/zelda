@@ -118,7 +118,7 @@ resource "aws_s3_bucket" "aws_s3_codepipeline_artifacts_bucket" {
   bucket = "${var.tools_env}-${var.project_name}-${var.project_region}-codepipeline-artifacts"
   tags = {
     app-name = var.project_name
-    app-env  = var.project_env
+    app-env  = var.tools_env
   }
 }
 
